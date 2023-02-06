@@ -79,3 +79,11 @@ int main(){
 
     return 0;
 }
+
+/*
+- rank tells us the bigger guy
+- path compression happens by that we cannot reduce the rank
+- so by this way we can say RANK != HEIGHT. HEIGHT is changeable after path compression
+- whereas RANK is not.
+
+*/
