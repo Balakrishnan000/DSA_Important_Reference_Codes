@@ -88,3 +88,9 @@ int main(){
 - DONT USE UNION by rank and size MIXED.
 
 */
+
+/*
+By RANK TC: O(4*alpha) = as goood as O(1)
+By SIZE TC: O(4*alpha) = as goood as O(1)
+As in both methods - idea wise only we make difference, no diff complexities wise
+*/
