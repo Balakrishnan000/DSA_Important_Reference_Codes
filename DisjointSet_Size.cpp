@@ -15,11 +15,12 @@ public:
 
     }
 
-    int findPar(int node){
+    //Find Ultimate Parent of any node
+    int findUPar(int node){
         if(parent[node] == node){ //ultimate parent
             return node;
         }
-        return parent[node] = findPar(parent[node]);
+        return parent[node] = findUPar(parent[node]);
         /*
         here parent[node] = this line makes the PATH COMPRESSION possible
         1st time we may take log N, but later on we take only O(1) 
@@ -29,8 +30,8 @@ public:
 
     // change is ONLY HERE compared to UnionbyRANK
     void unionBySize(int u, int v){
-        int ulp_u = findPar(u); //ultimate parent - par's par's par till no more par
-        int ulp_v = findPar(v);
+        int ulp_u = findUPar(u); //ultimate parent - par's par's par till no more par
+        int ulp_v = findUPar(v);
 
         if(ulp_u == ulp_v) return; //over
 
@@ -56,7 +57,7 @@ int main(){
     ds.unionBySize(5,6);
 
     //we check for same component or not for 3,7
-    if(ds.findPar(3) == ds.findPar(7)){
+    if(ds.findUPar(3) == ds.findUPar(7)){
         //ultimate par are same then we say its same component
         cout<<"Same Component\n";
     }
@@ -67,7 +68,7 @@ int main(){
     ds.unionBySize(3,7);
 
     //check again now, after addition of edge
-    if(ds.findPar(3) == ds.findPar(7)){
+    if(ds.findUPar(3) == ds.findUPar(7)){
         //ultimate par are same then we say its same component
         cout<<"Same Component\n";
     }
